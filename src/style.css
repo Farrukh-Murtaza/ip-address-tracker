@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@theme {
+  --background-image-hero-mobile: url('./assets/images/pattern-bg-mobile.png');
+  --background-image-hero-desktop: url('./assets/images/pattern-bg-desktop.png');
+}
