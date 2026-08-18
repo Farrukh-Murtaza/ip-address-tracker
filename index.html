@@ -5,23 +5,57 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ip-address-tracker</title>
-  <link rel="stylesheet" href="/src/style.css">
+  <title>IP Address Tracker</title>
   <script type="module" src="/src/main.ts" defer></script>
 </head>
 
 <body>
 
-  <main class="bg-hero-mobile lg:bg-hero-desktop ">
-    <div>
-      <h1>ip address tracker</h1>
-      <form action="">
-        <input type="text">
-        <button type="submit">
-          <img src="./src/assets/images/icon-arrow.svg" alt="">
-        </button>
-      </form>
+  <main>
+
+
+    <div class="bg-hero-mobile md:bg-hero-desktop bg-no-repeat bg-cover h-60 md:h-50 relative ">
+      <div
+        class="w-[88%]  flex flex-col gap-4 absolute left-1/2 -translate-x-1/2 top-5 z-10 justify-center items-center">
+        <h1 class="capitalize text-center text-2xl font-medium text-white ">ip address tracker</h1>
+        <form class="flex justify-center" id="form">
+          <input class="md:max-w-lg h-10 focus:outline-none bg-white rounded-tl-xl rounded-bl-xl px-4 py-1"
+            id="textField" type="text" placeholder="Search for any IP address or domain" />
+          <button type="submit"
+            class=" w-16 flex justify-center items-center p-2 rounded-tr-xl rounded-br-xl bg-slate-950 hover:bg-slate-700 ">
+            <img class="h-3.5" src="./src/assets/images/icon-arrow.svg" alt="icon-arrow">
+          </button>
+        </form>
+        <span id="error" class="text-red-600 ml-4 -mt-1"></span>
+
+        <div class="md:max-w-5xl bg-white p-4 flex flex-col md:flex-row md:justify-center rounded-xl text-center gap-5">
+
+          <div class="px-5 py-2 md:border-r md:border-slate-300">
+            <p class="uppercase text-slate-400 text-xs font-bold">ip address</p>
+            <p id="ip" class="text-xl text-slate-800 font-bold">192.212.174.101</p>
+          </div>
+
+
+          <div class="px-5 py-2 md:border-r md:border-slate-300">
+            <p class="uppercase  text-slate-400 text-xs font-bold">location</p>
+            <p id="location" class="text-xl text-slate-800 font-bold">Brooklyn, NY 10001</p>
+          </div>
+
+
+          <div class="px-5 py-2 md:border-r md:border-slate-300">
+            <p class="uppercase  text-slate-400 text-xs font-bold">timezone</p>
+            <p id="timeZone" class="text-xl text-slate-800 font-bold">UTC-05:00</p>
+          </div>
+
+          <div class="px-5 py-2 ">
+            <p class="uppercase  text-slate-400 text-xs font-bold">isp</p>
+            <p id="isp" class="text-xl text-slate-800 font-bold">spaceX starlink</p>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <div id="map" class="w-full h-svh z-0"></div>
   </main>
   <footer></footer>
 </body>
