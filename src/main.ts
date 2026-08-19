@@ -35,14 +35,15 @@ const isp = document.getElementById("isp") as HTMLElement;
 
 function updateDisplayList(data: IpApiResponse, map: L.Map) {
 
+    if (marker) {
+        marker.setLatLng([data.location.lat, data.location.lng]);
+    } else {
+        marker = L.marker([data.location.lat, data.location.lng]).addTo(map);
+    }
 
-    marker = L.marker([
-        data.location.lat,
-        data.location.lng
-    ]).addTo(map);
-
-    marker.bindPopup(`<center><b>${data.location.country}</b> | ${data.location.region} | ${data.location.city} <br /> { lat : ${data.location.lat}  , long: ${data.location.lng} } </center>`).openPopup();
-
+    marker
+        .bindPopup(`<center><b>${data.location.country}</b> | ${data.location.region} | ${data.location.city} <br /> { lat : ${data.location.lat}, long: ${data.location.lng} } </center>`)
+        .openPopup();
 
     ip.textContent = data.ip;
     location.textContent = `${data.location.city}, ${data.location.region} ${data.location.postalCode}`;
