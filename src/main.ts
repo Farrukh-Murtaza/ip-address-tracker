@@ -2,9 +2,21 @@ import "leaflet/dist/leaflet.css";
 import { getIpAddressOrDomain } from "./services/apiResponse";
 import L from 'leaflet';
 import type { IpApiResponse } from "./models/ip_model";
+import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 
 let map: L.Map | null = null;
 let marker: L.Marker;
+
+
+delete (L.Icon.Default.prototype as any)._getIconUrl;
+
+L.Icon.Default.mergeOptions({
+    iconRetinaUrl: markerIcon2x,
+    iconUrl: markerIcon,
+    shadowUrl: markerShadow,
+});
 
 const ipv4Pattern = /^(\d{1,3}\.){3}\d{1,3}$/;
 
