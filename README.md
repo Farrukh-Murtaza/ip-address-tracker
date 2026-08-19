@@ -1,109 +1,106 @@
-# Frontend Mentor - IP address tracker
+# IP Address Tracker
 
-![Design preview for the IP address tracker coding challenge](./design/desktop-preview.jpg)
+A web app that tracks the geolocation of an IP address or domain name, displaying the results on an interactive map. Built with TypeScript and Leaflet, powered by the [ipify Geolocation API](https://geo.ipify.org/).
 
-## Welcome! 👋
+## 🔗 Live Demo
 
-Thanks for checking out this front-end coding challenge.
+[View the live site](https://verdant-alfajores-791364.netlify.app/)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+## 📸 Preview
 
-**To do this challenge, you need a basic understanding of HTML, CSS and JavaScript.**
+![Desktop preview](./src/assets/design/desktop-preview.jpg)
 
-## The challenge
+<details>
+<summary>More screenshots</summary>
 
-Your challenge is to build out this IP Address Tracker app and get it looking as close to the design as possible. To get the IP Address locations, you'll be using the [IP Geolocation API by IPify](https://geo.ipify.org/). To generate the map, we recommend using [LeafletJS](https://leafletjs.com/).
+**Mobile**
 
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+![Mobile design](./src/assets/design/mobile-design.jpg)
 
-Your users should be able to:
+**Desktop**
 
-- View the optimal layout for each page depending on their device's screen size
-- See hover states for all interactive elements on the page
-- See their own IP address on the map on the initial page load
-- Search for any IP addresses or domains and see the key information and location
+![Desktop design](./src/assets/design/desktop-design.jpg)
 
----
+**Active states**
 
-⚠️ **IMPORTANT** ⚠️: To use the IP Geolocation API by IPify, you'll need to sign up for a free account. You won't need to add any cards details to do this and it's a very quick process. This will generate an API Key for you. Usually, you would be able to restrict your API Key to a specific URL (your own domain). This makes sure that other people can't use your API Key on their own websites. IPify doesn't have this feature, but because you aren't adding your card details, this isn't an issue. **So be sure to only sign up for the free account and DO NOT enter any card details**.
+![Active states](./src/assets/design/active-states.jpg)
 
-For the mapping API, we recommend using [LeafletJS](https://leafletjs.com/). It's free to use and doesn't require an API Key. If you decide to use another API, like Google Maps or Mapbox, be sure to secure your API Key. Here are guides for both Google Maps and Mapbox, be sure to read through them thoroughly:
+</details>
 
-- [API Key best practices from Google Developers](https://developers.google.com/maps/api-key-best-practices)
-- [How to use Mapbox securely](https://docs.mapbox.com/help/troubleshooting/how-to-use-mapbox-securely/)
+## 📸 Features
 
-Exposing your API Key publicly can lead to other people using it to make requests for their own application if the proper precautions aren't in place. Please be sure you read the guides thoroughly and follow their recommendations.
+- Look up geolocation data by **IPv4 address**, **IPv6 address**, or **domain name**
+- Client-side input validation with inline error messaging
+- Interactive map (Leaflet + OpenStreetMap tiles) that pans/zooms to the searched location
+- Displays IP address, location, timezone, and ISP details
+- Automatically loads the user's own IP location on first visit
 
-**We don't take any responsibility if you expose your API Key while completing the challenge and have not secured it.**
+## 🛠️ Built With
 
----
+- [TypeScript](https://www.typescriptlang.org/)
+- [Leaflet](https://leafletjs.com/) for interactive maps
+- [OpenStreetMap](https://www.openstreetmap.org/) tile layer
+- [ipify Geolocation API](https://geo.ipify.org/) for IP/domain lookups
+- Vite (or your bundler of choice) for local development and builds
 
-Want some support on the challenge? [Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+## 📁 Project Structure
 
-## Where to find everything
+```
+├── models/
+│   └── ip_model.ts        # TypeScript interfaces for the API response
+├── services/
+│   └── apiResponse.ts     # Fetch logic for the ipify API
+├── main.ts                 # App entry point: DOM logic, form handling, map rendering
+└── index.html
+```
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+## 🚀 Getting Started
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+### Prerequisites
 
-If you would like the design files (we provide Sketch & Figma versions) to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+- [Node.js](https://nodejs.org/) installed locally
 
-You will find all the required assets in the `/images` folder. The assets are already optimized.
+### Installation
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+1. Clone the repository
+   ```bash
+   git clone https://github.com/Farrukh-Murtaza/ip-address-tracker.git
+   cd ip-address-tracker
+   ```
+2. Install dependencies
+   ```bash
+   npm install
+   ```
+3. Add your ipify API key as an environment variable (see [Configuration](#-configuration) below)
+4. Run the dev server
+   ```bash
+   npm run dev
+   ```
 
-## Building your project
+## ⚙️ Configuration
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+This project requires an API key from [ipify](https://geo.ipify.org/). Create a `.env` file in the project root:
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+```
+VITE_IPIFY_API_KEY=your_api_key_here
+```
 
-## Deploying your project
 
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
+> ⚠️ Never commit your real API key to version control. Make sure `.env` is listed in `.gitignore`.
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+## 🧠 Development Reflection
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+Building this IP Address Tracker was a good exercise in tying together an external API, a mapping library, and TypeScript's type system into a small, functional tool. The core flow fetch geolocation data from ipify, then render it both as text and as a marker on a Leaflet map seemed simple at the outset, but a few details required real thought.
 
-## Create a custom `README.md`
+One challenge was input validation. Distinguishing IPv4, IPv6, and domain names with regex is deceptively tricky (the IPv6 pattern here is intentionally permissive rather than fully RFC-compliant), so I opted for "good enough" client-side validation and let the API be the final source of truth on whether a lookup succeeds.
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+Another challenge was state management around the Leaflet map instance. Since the map can't be initialized twice, I had to carefully branch between "create the map" (on first load) and "just update the view and marker" (on every subsequent search), which meant lifting `map` to module scope and checking for its existence before each operation.
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+Typing the API response with `IpApiResponse` paid off quickly — it caught a bug where `isp` was being set with inverted logic (`data.isp !== '' ? 'N/A' : data.isp`), a fix I plan to make going forward.
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+If I continued improving this project, I'd prioritize:
+- Moving the API key out of source code and into an environment variable — right now it's hardcoded, which is a security risk worth fixing before sharing the repo publicly.
+- Adding a loading state and friendlier error messaging instead of console-only failures.
+- Debouncing input and adding unit tests around the validation regex and marker update logic.
 
-## Submitting your solution
-
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
-
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
-
-## Sharing your solution
-
-There are multiple places you can share your solution:
-
-1. Share your solution page in the **#finished-projects** channel of the [community](https://www.frontendmentor.io/community). 
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
-
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
-
-The more specific you are with your questions, the more likely it is that another member of the community will give you feedback.
-
-## Got feedback for us?
-
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
+Overall, this project reinforced how much small architectural decisions — like where state lives — shape the maintainability of even a small app.

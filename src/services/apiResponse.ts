@@ -1,7 +1,7 @@
 import type { IpApiResponse } from "../models/ip_model";
+const apiUrl = import.meta.env.VITE_IPIFY_API_KEY;
 
-
-const API_URL: string = "https://geo.ipify.org/api/v2/country,city?apiKey=at_AATSo42bmm6MOJ1f2nVEB7atYGY3T"
+const API_URL: string = `https://geo.ipify.org/api/v2/country,city?apiKey=${apiUrl}`
 
 
 export async function getIpAddressOrDomain(key: string = '', value: string = '') {
